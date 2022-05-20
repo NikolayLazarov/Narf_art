@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@
       <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <div>
-            <img src="img/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            <img src="media/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
             <a class="navbar-brand" href="#">Navbar</a>
           </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,22 +49,37 @@
     
     <h1>Data</h1>
   <div id="cards" class="row row-cols-1 row-cols-md-3 g-4">
-             {% for item in cards %}
+            {% for item in cards %}
 
             <div class="col">
                     <div class="card --card">
-                        <img src="img/square.png" class="card-img-top" alt="...">
+                        <img src="media/square.png" class="card-img-top" alt="...">
                         <div class="card-body">
                         <h5 class="card-title">Card: {{item.name}}</h5>
                         <p class="card-text">published by {{item.author}}</p>
 
                         <p class="card-text">{{item.text}} </p>
                         <p>published: {{item.pub_date}}</p>
+
+                          {% if item.photo %}
+                          <td>
+                            <!-- <img src="/{ card.photo.url }" width="120"/> -->
+                            <img src="{{ BASIC_DIR }}/media/{{item.photo}} " alt="No photo">
+                          </td>
+                          {% else %}
+                          <p>there is no pgoto3</p>
+                          <!-- put something static -->
+                          <!-- <img src="{% static './media/image/index.jpeg' %}" alt="no photos here"> -->
+                        {% endif %}
+                     
                         </div>
                     </div>
                     </div>
             {% endfor %}
     </div> 
+
+    <a href="{% url 'add-card' %}"></a>
+
 
 
 </body>

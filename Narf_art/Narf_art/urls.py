@@ -16,11 +16,24 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-urlpatterns = [
-    path('gallery/', include('gallery.urls')),
-    path('admin/', admin.site.urls),
-]
+from django.conf import settings
+from django.conf.urls.static import static
+from gallery import views
 
+
+# urlpatterns = [
+#     path('gallery/', include('gallery.urls')),
+#     path('admin/', admin.site.urls),
+# ]
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('gallery/', include('gallery.urls')),
+
+    
+    ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 # from django.views.generic import RedirectView
 # from django.conf import settings
 # from django.conf.urls.static import static
