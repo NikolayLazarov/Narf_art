@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form action="" method = "POST" enctype=" multipart/form-data">
+            {% csrf_token %}
+            <div>
+                <label for="" class="form-label">Name</label>
+                <input type="text" Required name = "name" class="form-control">
+            </div>
+
+            <div>
+                <label for="" class="form-label">Author</label>
+                <input type="text" Required name = "author" class="form-control">
+            </div>
+            <div>
+                <label for="" class="form-label">Photo</label>
+                <input type="file" Required name = "photo" class="form-control">
+            </div>
+            <div>
+                <label for="" class="form-label">Text</label>
+                <input type="text" Required name = "text" class="form-control">
+            </div>
+            <div>
+                <label for="" class="form-label">Date</label>
+                <input type="date" Required name = "pub_date" class="form-control">
+            </div>
+
+            <button type = "submit" > save</button>
+
+        </form>
+    </div>
+</body>
+</html>

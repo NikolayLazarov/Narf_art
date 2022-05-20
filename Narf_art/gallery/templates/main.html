@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+        <th>Title</th>
+        <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+      {% for card in cards %}  
+          <tr>
+            <td>{{card.name}}</td>
+            {% if card.photo%}
+                <td>
+                  <!-- <img src="/{ card.photo.url }" width="120"/> -->
+                  <img src="{{ BASIC_DIR }}/media/{{card.photo}} " alt="">
+                </td>
+
+            {% else %}
+                <img src="{% static './media/image/index.jpeg' %}" alt="no photos here">
+            {% endif %}
+           
+          </tr>
+        {% endfor %} 
+      </tbody>
+    </table>	
+    </div>
+  
+</body>
+</html>
+
+<!-- <form method = "post" enctype = "multipart/form-data">
+    {% csrf_token %}
+    {{fotm.as_p}}
+    <button type = "submit" >Upload</button>
+</form>
+
+{% if img_obj %}
+<h3>Succesfully uploaded : {{img_obj}}</h3>
+    <img src="{{img_obj.image.url}}" alt="connect" style = "max-height: 300px;">
+{% endif %} -->
+
+<!-- 
+ <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+     {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+  
+  {% if img_obj %}
+    <h3>Succesfully uploaded : {{img_obj.title}}</h3>
+    <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:300px">
+  {% endif %} -->

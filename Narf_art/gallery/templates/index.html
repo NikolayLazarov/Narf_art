@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,6 +50,19 @@
     <h1>Probe data</h1>
     <p>Card: {{card.name}} </p>
     <p>published by {{card.author}}</p>
+      <tr>
+            <td>{{card.name}}</td>
+            {% if card.photo%}
+                <td>
+                  <!-- <img src="/{ card.photo.url }" width="120"/> -->
+                  <img src="{{ BASIC_DIR }}/media/{{card.photo}} " alt="">
+                </td>
+
+            {% else %}
+                <img src="{% static './media/image/index.jpeg' %}" alt="no photos here">
+            {% endif %}
+           
+          </tr>
 
 
     <!-- {% for item in cards %}
@@ -61,46 +75,7 @@
 
 {% endfor %} -->
 
-    <div id="cards" class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-          <div class="card --card">
-            <img src="img/square.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card: {{card.name}}</h5>
-              <p class="card-text">published by {{card.author}}</p>
-
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card --card">
-            <img src="img/square.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card --card">
-            <img src="img/square.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card --card">
-            <img src="img/square.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
-     </div>
+   
     
 </body>
 </html>
