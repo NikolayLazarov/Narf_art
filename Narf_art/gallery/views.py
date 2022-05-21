@@ -5,7 +5,7 @@ from django.shortcuts import render,redirect
 from .models import Card
 from .forms import CardForm
 
-from .forms import ImageForm
+# from .forms import ImageForm
 
 from django.conf import settings
 
@@ -17,7 +17,7 @@ def index(request):
 def card_by_id(request,card_id):
     card = Card.objects.get(pk = card_id)
     # cards = Card.objects.all()
-    return render(request,'index.html', {'card': card })
+    return render(request,'product.html', {'card': card })
     # return render(request,'index.html', {'card': cards })
 
     # return HttpResponse(f"Card: {card.name}, published by {card.author}")
@@ -37,19 +37,18 @@ def probe(request):
     return render(request,'main.html', {'cards': cards })
 
 
-
-def image_upload_view(request):
-    """Process images uploaded by users"""
-    if request.method == 'POST':
-        form = ImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            # Get the current instance object to display in the template
-            img_obj = form.instance
-            return render(request, 'main.html', {'form': form, 'img_obj': img_obj})
-    else:
-        form = ImageForm()
-    return render(request, 'main.html', {'form': form})
+# def image_upload_view(request):
+#     """Process images uploaded by users"""
+#     if request.method == 'POST':
+#         form = ImageForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             # Get the current instance object to display in the template
+#             img_obj = form.instance
+#             return render(request, 'main.html', {'form': form, 'img_obj': img_obj})
+#     else:
+#         form = ImageForm()
+#     return render(request, 'main.html', {'form': form})
 
 def addProduct(request):
     if request.method == "POST":
@@ -67,7 +66,18 @@ def addProduct(request):
         return redirect('/gallery/card')
     return render(request, 'add_card.html')
     
+def mainPaige(request):
+    return render(request, 'main.html')
+def shop(request):
+    cards = Card.objects.all()
 
+    return render(request, 'shop.html', {'cards': cards})
+
+def aboutUsPage(request):
+    return render(request, 'abouts-uss.html')
+
+def footer(request):
+    return render(request, 'FOOTER1.html')
 # def image_upload_view(request):
 #     """Process images uploaded by users """
 #     if request.method == "POST":

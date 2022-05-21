@@ -1,0 +1,145 @@
+
+@media (min-width: 992px) {
+    .navbar-nav.navbar-center {
+      position: absolute;
+      left: 50%;
+      transform: translatex(-50%);
+    }
+    .--search{
+        position: absolute;
+        right: 1%;
+    }
+
+    .--card{
+      height: 60vh;
+      width: 30vw;
+    }
+}
+@media (max-width: 769px) {
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 5vh;
+    right: -2.5vh;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+  }
+  .icon-hover {
+    color: rgb(4, 2, 2);
+    font-size: 1.5em;
+  }
+  .--card{
+    width: 75vw;
+  }
+
+  .carousel-text{
+    display:flex;
+    flex-direction: column;
+    margin-left: 15vw;
+    margin-right: 15vw;
+  }
+  .carousel{
+    width: 70vw;
+  }
+  .product-text{
+    margin-top: 2vw;
+    height: 60vw;
+    padding: 1vw;
+    width: 70vw;
+    background-color: rgb(209, 214, 219);
+  }
+  .price-product{
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 2vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(137, 139, 141);
+  }
+}
+@media (min-width: 768px){
+    .middle {
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top: 5vh;
+      right: -1vh;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+      display: flex;
+    }
+    .icon-hover {
+      color: rgb(4, 2, 2);
+      font-size: 1.5em;
+    }
+    .--card{
+      height: 70vh;
+      width: 20vw;
+    }
+    .carousel-text{
+      display:flex;
+      margin-left: 15vw;
+      margin-right: 15vw;
+    }
+    .carousel{
+      width: 45vw;
+    }
+    .product-text{
+      height: 25vw;
+      padding: 1vw;
+      width: 20vw;
+      margin-left: 2vw;
+      background-color: rgb(209, 214, 219);
+    }
+    .price-product{
+      padding: 2vw;
+      display: flex;
+      justify-content: space-between;
+      background-color: rgb(137, 139, 141);
+    }
+}
+#ad.navbar{
+    justify-content: flex-end;
+}
+.icon{
+    margin-right: 1.5%;
+}
+
+#cards.row{
+  margin-left: 12.5vw;
+  margin-right: 12.5vw;
+}
+#ad.navbar{
+  padding-bottom: 0px;
+}
+
+
+.card-image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.card-image-hover:hover .image {
+  opacity: 0.3;
+}
+
+.card-image-hover:hover .middle {
+  opacity: 1;
+}
+
+.icons-pos{
+  display: flex;
+}
+
+.icon-first{
+  margin-right: 2vh;
+}
+
